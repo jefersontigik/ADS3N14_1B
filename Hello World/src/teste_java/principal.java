@@ -4,7 +4,7 @@ public class principal {
 
 	public static void main(String[] args) {
 		HelloWorld mostra = new HelloWorld();
-		mostra.imprimeTexto("Alô mundo!");
+		mostra.imprimeTexto("Hello, You");
 	}
 
 }
