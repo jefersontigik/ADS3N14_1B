@@ -7,39 +7,39 @@ public class Nodo {
 	private int  dado;
 	private Nodo next;
 
-	private Nodo()
+	public Nodo()
 	{
 		dado = 0;
 	}
 	
-	private Nodo(int i)
+	public Nodo(int i)
 	{
 		dado = i;
 		next = null;
 	}
 	
-	private void setData(int i)
+	public void setData(int i)
 	{
 		dado = i;
 		next = null;
 	}
 	
-	private int getData()
+	public int getData()
 	{
 		return dado;
 	}
 
-	private void setNext(Nodo next)
+	public void setNext(Nodo next)
 	{
 		this.next = next;
 	}
 	
-	private Nodo getNext()
+	public Nodo getNext()
 	{
 		return next;
 	}
 	
-	private static void print(Nodo head)
+	public static void print(Nodo head)
 	{
 		Nodo elem = head;
 		do {
@@ -48,17 +48,16 @@ public class Nodo {
 		} while (elem != null);
 	}
 	
-	private static void insertBefore(Nodo antigo, Nodo novo)
+	public static void insertBefore(Nodo antigo, Nodo novo)
 	{
 		novo.setNext(antigo);
 	}
 	
-	private static void insertAfter(Nodo novo, Nodo antigo)
+	public static void insertAfter(Nodo novo, Nodo antigo)
 	{
 		novo.setNext(antigo.getNext());
 		antigo.setNext(novo);
 	}
-	
 	public static void main(String[] args) {
 		// criar lista
 		Nodo head = new Nodo(), novo;
