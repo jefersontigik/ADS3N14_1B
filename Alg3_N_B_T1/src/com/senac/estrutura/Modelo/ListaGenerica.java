@@ -37,5 +37,9 @@ public class ListaGenerica <T> {
 		}
 		return atual;
 	}
+	
+	public boolean estaVazio(){
+			return this.head == null ? true : false;
+	}
 
 }
