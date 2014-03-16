@@ -1,45 +1,39 @@
 package com.senac.estrutura.Modelo;
 
+import static java.lang.System.out;
 
-public class ListaGenerica <T> {
-	
-	private NodoGenerico <T> head;
-	
-	public NodoGenerico<T> getHead() {
-		return head;
-	}
+public class ListaGenerica<T> {
 
-	public void setHead(NodoGenerico<T> head) {
-		this.head = head;
-	}
+	protected NodoGenerico<T> head;
+	protected NodoGenerico<T> tail;
 
-	public ListaGenerica(){
-		head = null;
-	}
-	
-	public void insere(T elemento){
-		NodoGenerico <T> novo = new NodoGenerico <T>(elemento);
-		novo.setProximo(this.head);
-		this.head = novo;
-	}
-	
-	public NodoGenerico <T> apagar(NodoGenerico <T> nodo){
-		NodoGenerico <T> atual = head;
-		
-		while(atual.getElemento() != nodo){
-			if(atual.getProximo() == null)
-				return null;
-			else{
-				atual = atual.getProximo();
-			}
-			if(atual == head)
-				head = head.getProximo();
-		}
-		return atual;
-	}
-	
-	public boolean estaVazio(){
-			return this.head == null ? true : false;
+	public void insert(NodoGenerico<T> novo) {
+		novo.setNext(head);
+		head = novo;
+		if (tail == null)
+			tail = novo;
 	}
 
+	public void insert(NodoGenerico<T> novo, NodoGenerico<T> anterior) {
+		novo.setNext(anterior.getNext());
+		anterior.setNext(novo);
+		if (anterior == tail)
+			tail = novo;
+	}
+
+	public void append(NodoGenerico<T> novo) {
+		if (tail != null)
+			tail.setNext(novo);
+		else
+			head = novo;
+		tail = novo;
+	}
+
+	public void print() {
+		NodoGenerico<T> elem = head;
+		do {
+			out.println(elem.getData());
+			elem = elem.getNext();
+		} while (elem != null);
+	}
 }

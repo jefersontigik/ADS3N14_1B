@@ -1,34 +1,34 @@
 package com.senac.estrutura.Modelo;
-/**
- * Criando Nodo genérico.
- */
 
-public class NodoGenerico <T> {
+public class NodoGenerico<T> {
 	
-	private T elemento;
-	private NodoGenerico <T> proximo;
-	
-	public NodoGenerico(T elemento){
-		this.elemento = elemento;
-	}
-	public NodoGenerico(T elemento, NodoGenerico <T> b){
-		this.elemento = elemento;
-		this.proximo = b;
-	}
-	
-	public T getElemento() {
-		return elemento;
-	}
-	public void setElemento(T elemento) {
-		this.elemento = elemento;
-	}
-	public NodoGenerico<T> getProximo() {
-		return proximo;
-	}
-	public void setProximo(NodoGenerico<T> proximo) {
-		this.proximo = proximo;
-	}
-	
-	
+	private T  dado;
+	private NodoGenerico<T> next;
 
+	public NodoGenerico(T i)
+	{
+		dado = i;
+		next = null;
+	}
+	
+	public void setData(T i)
+	{
+		dado = i;
+		next = null;
+	}
+	
+	public T getData()
+	{
+		return dado;
+	}
+
+	public void setNext(NodoGenerico<T> next)
+	{
+		this.next = next;
+	}
+	
+	public NodoGenerico<T> getNext()
+	{
+		return next;
+	}
 }
