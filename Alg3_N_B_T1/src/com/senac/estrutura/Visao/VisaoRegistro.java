@@ -8,17 +8,16 @@ import java.util.Scanner;
 import com.senac.estrutura.Controle.ManipulaArquivo;
 import com.senac.estrutura.Modelo.ListaGenerica;
 import com.senac.estrutura.Modelo.ListaTel;
-import com.senac.estrutura.Modelo.NodoGenerico;
+import com.senac.estrutura.Modelo.NoGen;
 
 public class VisaoRegistro {
 
 	String linha = "";
 	char opcao;
-	int i = 0;
 	ListaGenerica<ListaTel> lista = new ListaGenerica<ListaTel>();
 	ManipulaArquivo<ListaTel> arq = new ManipulaArquivo<ListaTel>();
 	ListaTel agenda = new ListaTel();
-	NodoGenerico<ListaTel> nodo = new NodoGenerico<ListaTel>(agenda);
+	NoGen<ListaTel> nodo = new NoGen<ListaTel>(agenda);
 
 	String[] a = new String[3];
 
@@ -59,14 +58,13 @@ public class VisaoRegistro {
 				linha = arq.lerArquivo();
 				a = linha.split(";");
 
-				if (i == 0) {
+				if (lista.ListaVazia()) {
 					agenda.setNome(a[0]);
 					agenda.setFone(a[1]);
 					nodo.setData(agenda);
 
 					lista = new ListaGenerica<ListaTel>();
 					lista.insert(nodo);
-					i++;
 				} else {
 
 					agenda.setNome(a[0]);
@@ -75,15 +73,16 @@ public class VisaoRegistro {
 
 					lista = new ListaGenerica<ListaTel>();
 					lista.append(nodo);
-					i++;
 				}
+//				out.println(a.toString());
+				out.println(agenda.getNome()+" - "+agenda.getFone());
+				
+				lista.print();
 
 			} catch (IOException i) {
 				out.println(i.getMessage());
 				break;
-			}
-			lista.print();
+			}			
 		}
-		i = 0;
 	}
 }
