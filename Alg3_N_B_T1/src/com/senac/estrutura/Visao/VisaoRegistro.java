@@ -8,7 +8,7 @@ import java.util.Scanner;
 import com.senac.estrutura.Controle.ManipulaArquivo;
 import com.senac.estrutura.Modelo.ListaGenerica;
 import com.senac.estrutura.Modelo.ListaTel;
-import com.senac.estrutura.Modelo.NoGen;
+import com.senac.estrutura.Modelo.NodoGen;
 
 public class VisaoRegistro {
 
@@ -17,7 +17,7 @@ public class VisaoRegistro {
 	ListaGenerica<ListaTel> lista = new ListaGenerica<ListaTel>();
 	ManipulaArquivo<ListaTel> arq = new ManipulaArquivo<ListaTel>();
 	ListaTel agenda = new ListaTel();
-	NoGen<ListaTel> nodo = new NoGen<ListaTel>(agenda);
+	NodoGen<ListaTel> nodo = new NodoGen<ListaTel>(agenda);
 
 	String[] a = new String[3];
 
@@ -64,7 +64,7 @@ public class VisaoRegistro {
 					nodo.setData(agenda);
 
 					lista = new ListaGenerica<ListaTel>();
-					lista.insert(nodo);
+//					lista.insert(nodo);
 				} else {
 
 					agenda.setNome(a[0]);
@@ -72,9 +72,9 @@ public class VisaoRegistro {
 					nodo.setData(agenda);
 
 					lista = new ListaGenerica<ListaTel>();
-					lista.append(nodo);
+//					lista.append(nodo);
 				}
-//				out.println(a.toString());
+				out.println(a.toString());
 				out.println(agenda.getNome()+" - "+agenda.getFone());
 				
 				lista.print();

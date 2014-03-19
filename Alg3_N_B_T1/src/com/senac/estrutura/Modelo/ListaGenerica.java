@@ -4,28 +4,28 @@ import static java.lang.System.out;
 
 public class ListaGenerica <T>{
 
-	protected NoGen<T> head;
-	protected NoGen<T> tail;
+	protected NodoGen<T> head;
+	protected NodoGen<T> tail;
 
 	public boolean ListaVazia(){
 		return this.head == null ? true : false;
 	}
 	
-	public void insert(NoGen<T> novo) {
+	public void insert(NodoGen<T> novo) {
 		novo.setNext(head);
 		head = novo;
 		if (tail == null)
 			tail = novo;
 	}
 
-	public void insert(NoGen<T> novo, NoGen<T> anterior) {
+	public void insert(NodoGen<T> novo, NodoGen<T> anterior) {
 		novo.setNext(anterior.getNext());
 		anterior.setNext(novo);
 		if (anterior == tail)
 			tail = novo;
 	}
 
-	public void append(NoGen<T> novo) {
+	public void append(NodoGen<T> novo) {
 		if (tail != null)
 			tail.setNext(novo);
 		else
@@ -39,7 +39,7 @@ public class ListaGenerica <T>{
 //	}
 
 	public void print() {
-		NoGen<T> elem = head;
+		NodoGen<T> elem = head;
 		if(!ListaVazia()){
 			do {
 				out.println(elem.getData());
