@@ -5,16 +5,16 @@ public class NodoGen <T>{
 	private T  dado;
 	private NodoGen<T> next;
 
-	public NodoGen(T i)
+	public NodoGen()
 	{
-		dado = i;
+		dado = null;
 		next = null;
 	}
 
-	public void setData(T i)
+	public void setData(T dado)
 	{
-		dado = i;
-		next = null;
+		
+		this.dado = dado;
 	}
 
 	public T getData()

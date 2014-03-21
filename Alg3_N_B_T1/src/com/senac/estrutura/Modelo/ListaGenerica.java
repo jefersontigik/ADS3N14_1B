@@ -1,13 +1,24 @@
 package com.senac.estrutura.Modelo;
 
-import static java.lang.System.out;
-
 public class ListaGenerica <T>{
 
 	protected NodoGen<T> head;
 	protected NodoGen<T> tail;
 
-	public boolean ListaVazia(){
+	public NodoGen<T> getHead() {
+		return head;
+	}
+	
+	public NodoGen<T> getTail() {
+		return tail;
+	}
+	
+	public ListaGenerica() {
+		head = null;
+		tail = null;
+	}
+	
+	public boolean listaVazia(){
 		return this.head == null ? true : false;
 	}
 	
@@ -19,32 +30,35 @@ public class ListaGenerica <T>{
 	}
 
 	public void insert(NodoGen<T> novo, NodoGen<T> anterior) {
-		novo.setNext(anterior.getNext());
-		anterior.setNext(novo);
-		if (anterior == tail)
-			tail = novo;
+		if (anterior == null) {
+			novo.setNext(head);
+			head = novo;
+			if (tail == null)
+				tail = head;
+		} else {
+			novo.setNext(anterior.getNext());
+			anterior.setNext(novo);
+			if (anterior == tail)
+				tail = novo;
+		}
 	}
 
 	public void append(NodoGen<T> novo) {
-		if (tail != null)
+		if (tail != null) {
 			tail.setNext(novo);
-		else
+		} else {
 			head = novo;
+		}
 		tail = novo;
 	}
-	
-//	@Override
-//	public String toString() {
-//		return "ListaGenerica [head=" + head.getData().toString() + ", tail=" + tail.getData().toString() + "]";
-//	}
 
-	public void print() {
-		NodoGen<T> elem = head;
-		if(!ListaVazia()){
-			do {
-				out.println(elem.getData());
-				elem = elem.getNext();
-			} while (elem != null);
-		}		
-	}
+//	public void print() {
+//		NodoGen<T> elem = head;
+//		if(!listaVazia()){
+//			do {
+//				out.println(elem.getData());
+//				elem = elem.getNext();
+//			} while (elem != null);
+//		}		
+//	}
 }

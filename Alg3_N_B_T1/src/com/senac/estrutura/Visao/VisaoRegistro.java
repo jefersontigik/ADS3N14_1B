@@ -13,22 +13,22 @@ import com.senac.estrutura.Modelo.NodoGen;
 public class VisaoRegistro {
 
 	String linha = "";
-	char opcao;
+	String opcao;
 	ListaGenerica<ListaTel> lista = new ListaGenerica<ListaTel>();
 	ManipulaArquivo<ListaTel> arq = new ManipulaArquivo<ListaTel>();
 	ListaTel agenda = new ListaTel();
-	NodoGen<ListaTel> nodo = new NodoGen<ListaTel>(agenda);
+	NodoGen<ListaTel> nodo = new NodoGen<ListaTel>();
 
-	String[] a = new String[3];
+	String[] a = new String[2];
 
-	public char MontaMenu() {
+	public String montaMenu() {
 		out.println("Informe a opção desejada:"
 				+ "\n 1 - Inserir novo registro" + "\n 2 - Apagar registro"
 				+ "\n 3 - Listar todos " + "\n 4 - Pesquisar" + "\n 5 - Sair");
-		return opcao = new Scanner(System.in).next().toString().charAt(0);
+		return opcao = new Scanner(System.in).next();
 	}
 
-	public void InsereRegistro() {
+	public void insereRegistro() {
 		out.println("Digite o nome");
 		agenda.setNome(new Scanner(System.in).next().toString());
 
@@ -45,8 +45,8 @@ public class VisaoRegistro {
 			out.println(i.getMessage());
 		}
 	}
-
-	public void ListaTodos() {
+	
+	public void carregaLista(){
 		try {
 			arq.abreArquivoR("Agenda.txt");
 		} catch (IOException i) {
@@ -58,13 +58,13 @@ public class VisaoRegistro {
 				linha = arq.lerArquivo();
 				a = linha.split(";");
 
-				if (lista.ListaVazia()) {
+				if (lista.listaVazia()) {
 					agenda.setNome(a[0]);
 					agenda.setFone(a[1]);
 					nodo.setData(agenda);
 
 					lista = new ListaGenerica<ListaTel>();
-//					lista.insert(nodo);
+					lista.insert(nodo);
 				} else {
 
 					agenda.setNome(a[0]);
@@ -72,17 +72,21 @@ public class VisaoRegistro {
 					nodo.setData(agenda);
 
 					lista = new ListaGenerica<ListaTel>();
-//					lista.append(nodo);
+					lista.insert(nodo);
 				}
-				out.println(a.toString());
-				out.println(agenda.getNome()+" - "+agenda.getFone());
 				
-				lista.print();
 
 			} catch (IOException i) {
 				out.println(i.getMessage());
 				break;
 			}			
 		}
+	}
+
+	public void listaTodos() {
+		do{
+			out.println(lista.getTail().getNext().getData().getNome());
+			
+		}while(lista.getTail() != null);
 	}
 }

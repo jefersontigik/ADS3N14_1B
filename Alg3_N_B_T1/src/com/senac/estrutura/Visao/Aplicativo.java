@@ -4,17 +4,19 @@ import com.senac.estrutura.Visao.VisaoRegistro;
 
 public class Aplicativo {
 
+	
 	public static void main(String[] args) {
-
 		VisaoRegistro visao = new VisaoRegistro();
-
+		char opcao = visao.montaMenu().charAt(0);
+		visao.carregaLista();
+		
 		do {
-
-			switch (visao.MontaMenu()) {
+			opcao = visao.montaMenu().charAt(0);
+			switch (opcao) {
 				
 			case '1':
 				
-				visao.InsereRegistro();
+				visao.insereRegistro();
 				
 				break;
 
@@ -23,7 +25,7 @@ public class Aplicativo {
 				break;
 			case '3':
 				
-				visao.ListaTodos();
+				visao.listaTodos();
 				
 				break;
 
@@ -39,9 +41,14 @@ public class Aplicativo {
 
 			case '5':
 				System.out.println("Fim programa");
+				System.exit(0);
+				break;
+				
+			default:
+				System.out.println("Opcao Inexistente");
 			}
 
-		} while (visao.MontaMenu() != '5');
+		} while (opcao != '5');
 
 	}
 }
