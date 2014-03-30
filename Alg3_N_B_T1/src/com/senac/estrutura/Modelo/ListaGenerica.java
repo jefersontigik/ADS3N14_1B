@@ -51,14 +51,4 @@ public class ListaGenerica <T>{
 		}
 		tail = novo;
 	}
-
-//	public void print() {
-//		NodoGen<T> elem = head;
-//		if(!listaVazia()){
-//			do {
-//				out.println(elem.getData());
-//				elem = elem.getNext();
-//			} while (elem != null);
-//		}		
-//	}
 }

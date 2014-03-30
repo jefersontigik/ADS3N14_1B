@@ -13,7 +13,6 @@ public class NodoGen <T>{
 
 	public void setData(T dado)
 	{
-		
 		this.dado = dado;
 	}
 

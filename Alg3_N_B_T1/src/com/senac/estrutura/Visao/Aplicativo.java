@@ -8,7 +8,6 @@ public class Aplicativo {
 	public static void main(String[] args) {
 		VisaoRegistro visao = new VisaoRegistro();
 		char opcao = visao.montaMenu().charAt(0);
-		visao.carregaLista();
 		
 		do {
 			opcao = visao.montaMenu().charAt(0);

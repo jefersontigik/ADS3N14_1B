@@ -17,7 +17,7 @@ public class VisaoRegistro {
 	ListaGenerica<ListaTel> lista = new ListaGenerica<ListaTel>();
 	ManipulaArquivo<ListaTel> arq = new ManipulaArquivo<ListaTel>();
 	ListaTel agenda = new ListaTel();
-	NodoGen<ListaTel> nodo = new NodoGen<ListaTel>();
+//	NodoGen<ListaTel> nodo = new NodoGen<ListaTel>();
 
 	String[] a = new String[2];
 
@@ -29,6 +29,7 @@ public class VisaoRegistro {
 	}
 
 	public void insereRegistro() {
+		NodoGen<ListaTel> nodo = new NodoGen<ListaTel>();
 		out.println("Digite o nome");
 		agenda.setNome(new Scanner(System.in).next().toString());
 
@@ -54,7 +55,9 @@ public class VisaoRegistro {
 		}
 
 		while (linha != null) {
+			
 			try {
+				NodoGen<ListaTel> nodo = new NodoGen<ListaTel>();
 				linha = arq.lerArquivo();
 				a = linha.split(";");
 
@@ -62,20 +65,14 @@ public class VisaoRegistro {
 					agenda.setNome(a[0]);
 					agenda.setFone(a[1]);
 					nodo.setData(agenda);
-
-					lista = new ListaGenerica<ListaTel>();
 					lista.insert(nodo);
 				} else {
-
 					agenda.setNome(a[0]);
 					agenda.setFone(a[1]);
 					nodo.setData(agenda);
-
-					lista = new ListaGenerica<ListaTel>();
 					lista.insert(nodo);
 				}
 				
-
 			} catch (IOException i) {
 				out.println(i.getMessage());
 				break;
@@ -84,8 +81,10 @@ public class VisaoRegistro {
 	}
 
 	public void listaTodos() {
+		carregaLista();
 		do{
-			out.println(lista.getTail().getNext().getData().getNome());
+//			out.println(lista.getTail().getNext().getData().getNome());
+			out.println(lista.getHead().getNext().getData().getNome());
 			
 		}while(lista.getTail() != null);
 	}
