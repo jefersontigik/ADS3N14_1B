@@ -4,7 +4,7 @@ public class Matriz {
 	
 	private static int linha = 10;
 	private static int coluna = 10;
-	private char[][] matriz = new char[getLinha()][getColuna()];
+	private String[][] matriz = new String[getLinha()][getColuna()];
 	
 	
 	public static int getLinha() {
@@ -13,10 +13,10 @@ public class Matriz {
 	public static int getColuna() {
 		return coluna;
 	}
-	public char[][] getMatriz() {
+	public String[][] getMatriz() {
 		return matriz;
 	}
-	public void setMatriz(char[][] matriz) {
+	public void setMatriz(String[][] matriz) {
 		this.matriz = matriz;
 	}
 	

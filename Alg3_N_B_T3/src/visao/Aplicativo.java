@@ -11,7 +11,10 @@ public class Aplicativo {
 		
 		FuncoesMatriz funcMatriz = new FuncoesMatriz();
 		
-		funcMatriz.imprimeMatriz();
+//		funcMatriz.preencheMatriz();
+//		funcMatriz.imprimeMatrizVisual();
+		funcMatriz.alteraMatriz();
+		funcMatriz.imprimeMatrizNaval();
 
 	}
 }
