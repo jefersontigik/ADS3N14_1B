@@ -23,14 +23,14 @@ public class FuncoesMatriz {
 			
 			for (int y = 0; y < matrizNaval.getMatriz()[x].length; y++){
 				
-				if(matrizNaval.getMatriz()[x][y] == -1 /*|| matrizNaval.getMatriz()[x][y] == -2*/)
+				if(matrizNaval.getMatriz()[x][y] == -1 || matrizNaval.getMatriz()[x][y] == 2)
 					imprime += ".\t";
 				else if(matrizNaval.getMatriz()[x][y] == 0)
 					imprime += "-\t";
 				else if(matrizNaval.getMatriz()[x][y] == 1)
 					imprime += "O\t";
-				else if(matrizNaval.getMatriz()[x][y] == 2)
-					imprime += "#\t";
+//				else if(matrizNaval.getMatriz()[x][y] == 2)
+//					imprime += "#\t";
 			}
 			imprime += "\n";
 		}
