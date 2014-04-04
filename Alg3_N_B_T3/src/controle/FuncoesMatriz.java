@@ -29,8 +29,15 @@ public class FuncoesMatriz {
 					imprime += "-\t";
 				else if(matrizNaval.getMatriz()[x][y] == 1)
 					imprime += "O\t";
+				/**
+				 * Verificar a posição das embarcações.
+				 * 
+				 * else if(matrizNaval.getMatriz()[x][y] == 2)
+				 * 	   imprime += "#\t";
+				 */
 //				else if(matrizNaval.getMatriz()[x][y] == 2)
 //					imprime += "#\t";
+				
 			}
 			imprime += "\n";
 		}

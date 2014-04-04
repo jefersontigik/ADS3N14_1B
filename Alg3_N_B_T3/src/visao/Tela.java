@@ -14,6 +14,7 @@ public class Tela {
 	String opcao;
 	Matriz matrizNaval = new Matriz();
 	FuncoesMatriz funcMatriz = new FuncoesMatriz();
+	FuncoesJogador jogador = new FuncoesJogador();
 
 	public String menuInicioUser(){
 
@@ -25,7 +26,7 @@ public class Tela {
 	public String menuJogoUser(){
 
 		out.println("Informe a opção desejada:"
-				+ "\n 1 - Atirar" + "\n2 - Reiniciar" + "\n 3 - Encerrar");
+				+ "\n 1 - Atirar" + "\n 2 - Encerrar");
 		return opcao = new Scanner(System.in).next();
 	}
 
@@ -89,16 +90,18 @@ public class Tela {
 			i++;
 		}while(i < 5);
 
-		System.out.println(funcMatriz.imprimeMatriz(matrizNaval));
+		out.println(funcMatriz.imprimeMatriz(matrizNaval));
 	}
 
-	public void jogo(){
-
+	public void jogo(int a, int b){
+		int i = 5;
+		do{
+			out.println(funcMatriz.imprimeMatriz(jogador.tiro(matrizNaval, a, b)));
+			i--;
+		}while(i > 0);
 	}
-
-	public void atualizaTela(int a, int b){
-		FuncoesJogador jogador = new FuncoesJogador();
-		jogador.tiro(matrizNaval, a, b);
-		System.out.println(funcMatriz.imprimeMatriz(matrizNaval));
+	
+	public void mostraContagem(int a, int b){
+//		jogador.atualizaContagem(a, b);
 	}
 }

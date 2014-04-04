@@ -15,23 +15,19 @@ public class Aplicativo {
 				op = tela.menuJogoUser().charAt(0);
 				switch (op) {
 				case '1':
-
-					tela.atualizaTela(Integer.parseInt(tela.coordX()), Integer.parseInt(tela.coordY()));
+					tela.jogo(Integer.parseInt(tela.coordX()), Integer.parseInt(tela.coordY()));
 					break;
+
 				case '2':
-
-					break;
-
-				case '3':
 					out.println("Jogo Encerrado!");
 					System.exit(0);
 					break;
-
+				
 				default:
-					out.println("Opcao Invalida!");
+					out.println("Opção Inválida!");
 					break;
 				}
-			}while(op != '3');
+			}while(op != '2');
 		}
 		out.println("Jogo Encerrado!");
 	}
