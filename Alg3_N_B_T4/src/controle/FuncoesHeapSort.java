@@ -3,10 +3,19 @@ package controle;
 public class FuncoesHeapSort {
 
 	private static int[] a; 
-	private static int n; 
+	private static int n;
+	private int aux; 
 	private static int esquerdo; 
 	private static int direito; 
-	private static int largura;
+	private static int maior;
+	
+	public int getAux() {
+		return aux;
+	}
+
+	public void setAux(int aux) {
+		this.aux = aux;
+	}
 
 	public  void criaHeap(int[] vetor){ 
 		n = vetor.length - 1; 
@@ -19,14 +28,23 @@ public class FuncoesHeapSort {
 		esquerdo = 2 * i; 
 		direito = 2 * i + 1; 
 		
-		largura = esquerdo <= n && vetor[esquerdo] > vetor[i] ? esquerdo : i;
-
-		if(direito <= n && vetor[direito] > vetor[largura]){ 
-			largura = direito; 
+//		maior = esquerdo <= n && vetor[esquerdo] > vetor[i] ? esquerdo : i;
+		
+		if(esquerdo <= n && vetor[esquerdo] > vetor[i]){
+			maior = esquerdo;
+			setAux(aux++);
+		}else{
+			maior = i;
+			aux++;
+		}
+		if(direito <= n && vetor[direito] > vetor[maior]){ 
+			maior = direito; 
+			setAux(aux++);
 		} 
-		if(largura != i){ 
-			troca(i,largura); 
-			maxHeap(vetor, largura); 
+		if(maior != i){ 
+			troca(i,maior); 
+			maxHeap(vetor, maior); 
+			setAux(aux++);
 		} 
 	} 
 

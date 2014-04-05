@@ -40,7 +40,9 @@ public class AppHeapSort {
          */
         out.println("\nElementos após a ordenação: ");        
         for (i = 0; i < n; i++)
-        	out.print(vetor[i]+" ");            
+        	out.print(vetor[i]+" ");
+        
+        out.print("Total de trocas e comparações: "+heap.getAux());  
         out.println();
 	}
 }
