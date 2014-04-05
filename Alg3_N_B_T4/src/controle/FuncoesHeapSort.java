@@ -4,49 +4,45 @@ public class FuncoesHeapSort {
 
 	private static int[] a; 
 	private static int n; 
-	private static int left; 
-	private static int right; 
-	private static int largest;
+	private static int esquerdo; 
+	private static int direito; 
+	private static int largura;
 
-	public  void buildheap(int []a){ 
-		n = a.length - 1; 
+	public  void criaHeap(int[] vetor){ 
+		n = vetor.length - 1; 
 		for(int i = n/2; i >= 0; i--){
-			maxheap(a,i); 
+			maxHeap(vetor, i); 
 		} 
 	} 
 
-	public void maxheap(int[] a, int i){ 
-		left = 2 * i; 
-		right = 2 * i + 1; 
-		if(left <= n && a[left] > a[i]){ 
-			largest = left; 
-		} 
-		else{ 
-			largest = i; 
-		} 
+	public void maxHeap(int[] vetor, int i){ 
+		esquerdo = 2 * i; 
+		direito = 2 * i + 1; 
+		
+		largura = esquerdo <= n && vetor[esquerdo] > vetor[i] ? esquerdo : i;
 
-		if(right <= n && a[right] > a[largest]){ 
-			largest=right; 
+		if(direito <= n && vetor[direito] > vetor[largura]){ 
+			largura = direito; 
 		} 
-		if(largest != i){ 
-			exchange(i,largest); 
-			maxheap(a, largest); 
+		if(largura != i){ 
+			troca(i,largura); 
+			maxHeap(vetor, largura); 
 		} 
 	} 
 
-	public void exchange(int i, int j){ 
+	public void troca(int i, int j){ 
 		int t = a[i]; 
 		a[i] = a[j]; 
 		a[j] = t; 
 	} 
 
-	public void sort(int []a0){ 
-		a = a0; 
-		buildheap(a); 
+	public void sort(int[] vetor){ 
+		a = vetor; 
+		criaHeap(a); 
 		for(int i = n; i > 0; i--){
-			exchange(0, i); 
-			n = n - 1; 
-			maxheap(a, 0); 
+			troca(0, i); 
+			n--;
+			maxHeap(a, 0); 
 		} 
 	}
 }
