@@ -2,57 +2,51 @@ package controle;
 
 public class FuncoesHeapSort {
 
-	private int n;
-	
-	public int esquerdo(int i){
+	private static int[] a; 
+	private static int n; 
+	private static int left; 
+	private static int right; 
+	private static int largest;
 
-		return 2 * i;
+	public  void buildheap(int []a){ 
+		n = a.length - 1; 
+		for(int i = n/2; i >= 0; i--){
+			maxheap(a,i); 
+		} 
+	} 
+
+	public void maxheap(int[] a, int i){ 
+		left = 2 * i; 
+		right = 2 * i + 1; 
+		if(left <= n && a[left] > a[i]){ 
+			largest = left; 
+		} 
+		else{ 
+			largest = i; 
+		} 
+
+		if(right <= n && a[right] > a[largest]){ 
+			largest=right; 
+		} 
+		if(largest != i){ 
+			exchange(i,largest); 
+			maxheap(a, largest); 
+		} 
+	} 
+
+	public void exchange(int i, int j){ 
+		int t = a[i]; 
+		a[i] = a[j]; 
+		a[j] = t; 
+	} 
+
+	public void sort(int []a0){ 
+		a = a0; 
+		buildheap(a); 
+		for(int i = n; i > 0; i--){
+			exchange(0, i); 
+			n = n - 1; 
+			maxheap(a, 0); 
+		} 
 	}
-
-	public int direito(int i){
-
-		return 2 * i + 1;
-	}
-
-	public void heapSort(int vetor[]){
-
-		criaMaxHeap(vetor);
-
-		n = vetor.length;
-
-		for(int i = n - 1; i > 0; i-- ){
-
-		}
-	}
-
-	public void criaMaxHeap(int vetor[]){
-		for(int i = vetor.length / 2 - 1; i >= 0; i--)
-			maxHeap(vetor, vetor.length);
-	}
-
-	public void maxHeap(int vetor[], int i){
-		int e = esquerdo(i);
-		int d = direito(i);
-		
-		int max = i;
-        if (e <= n && vetor[e] > vetor[i])
-            max = e;
-        if (d <= n && vetor[d] > vetor[max])        
-            max = d;
- 
-        if (max != i)
-        {
-        	trocar(vetor, i, max);
-            maxHeap(vetor, max);
-        }
-	}
-
-	public void trocar(int[] vetor, int j, int aposJ){
-
-		int aux = 0;
-		aux = vetor[j];
-		vetor[j] = vetor[aposJ];
-		vetor[aposJ] = aux;
-	}
-
 }
