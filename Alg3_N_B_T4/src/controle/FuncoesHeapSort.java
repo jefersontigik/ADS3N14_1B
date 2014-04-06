@@ -4,17 +4,29 @@ public class FuncoesHeapSort {
 
 	private static int[] a; 
 	private static int n;
-	private int aux; 
 	private static int esquerdo; 
 	private static int direito; 
 	private static int maior;
+	private int aux1 = 0;
+	private int aux2 = 0;
+	private int troca;
+	private int compara;
 	
-	public int getAux() {
-		return aux;
+	
+	public int getTroca() {
+		return troca;
 	}
 
-	public void setAux(int aux) {
-		this.aux = aux;
+	public void setTroca(int troca) {
+		this.troca = troca;
+	}
+
+	public int getCompara() {
+		return compara;
+	}
+
+	public void setCompara(int compara) {
+		this.compara = compara;
 	}
 
 	public  void criaHeap(int[] vetor){ 
@@ -29,22 +41,24 @@ public class FuncoesHeapSort {
 		direito = 2 * i + 1; 
 		
 //		maior = esquerdo <= n && vetor[esquerdo] > vetor[i] ? esquerdo : i;
-		
+		setCompara(aux1++);
 		if(esquerdo <= n && vetor[esquerdo] > vetor[i]){
+			setTroca(aux2++);
 			maior = esquerdo;
-			setAux(aux++);
 		}else{
+			setTroca(aux2++);
 			maior = i;
-			aux++;
 		}
+		setCompara(aux1++);
 		if(direito <= n && vetor[direito] > vetor[maior]){ 
+			setTroca(aux2++);
 			maior = direito; 
-			setAux(aux++);
 		} 
+		setCompara(aux1++);
 		if(maior != i){ 
+			setTroca(aux2++);
 			troca(i,maior); 
 			maxHeap(vetor, maior); 
-			setAux(aux++);
 		} 
 	} 
 
