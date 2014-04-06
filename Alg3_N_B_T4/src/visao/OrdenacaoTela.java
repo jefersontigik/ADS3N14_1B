@@ -47,7 +47,6 @@ public class OrdenacaoTela {
         		out.print(vetor1[i]);
         }
         	
-        
         imprime = "\nTotal de trocas Heap Sort: "+heap.getTroca()+"\n" +
         "Total de comparações Heap Sort: "+heap.getCompara()+"\n" +
         "Total de trocas Selection Sort: " + select.getTroca()+"\n" +

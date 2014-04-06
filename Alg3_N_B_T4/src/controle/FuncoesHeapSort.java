@@ -2,11 +2,11 @@ package controle;
 
 public class FuncoesHeapSort {
 
-	private static int[] a; 
-	private static int n;
-	private static int esquerdo; 
-	private static int direito; 
-	private static int maior;
+	private int[] a; 
+	private int n;
+	private int esquerdo; 
+	private int direito; 
+	private int maior;
 	private int aux1 = 0;
 	private int aux2 = 0;
 	private int troca;
