@@ -10,7 +10,7 @@ public class ListaEncadeada<T> {
 		tail = null;
 	}
 	
-	public void insert(Nodo<T> novo)
+	public void incluir(Nodo<T> novo)
 	{
 		novo.setNext(head);
 		if (head != null)
@@ -20,7 +20,7 @@ public class ListaEncadeada<T> {
 			tail = novo;
 	}
 	
-	public void insert(Nodo<T> novo, Nodo<T> anterior)
+	public void incluir(Nodo<T> novo, Nodo<T> anterior)
 	{
 		if (anterior == null) {
 			novo.setNext(head);
@@ -59,13 +59,13 @@ public class ListaEncadeada<T> {
 
 	public void remove(Nodo<T> nodo) {
 		Nodo<T> ant = nodo.getPrevious();
-		Nodo<T> next = nodo.getNext();
+		Nodo<T> prox = nodo.getNext();
 		if (ant != null)
-			ant.setNext(next);
+			ant.setNext(prox);
 		else
-			head = next;
-		if (next != null)
-			next.setPrevious(ant);
+			head = prox;
+		if (prox != null)
+			prox.setPrevious(ant);
 		else
 			tail = ant;
 	}

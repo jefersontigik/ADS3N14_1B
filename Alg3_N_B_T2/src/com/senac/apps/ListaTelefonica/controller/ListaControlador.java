@@ -26,6 +26,7 @@ public class ListaControlador {
 	}
 
 	public void leituraArquivo(String nomeArquivo) {
+		int i = 0;
 		try {
 			Scanner arq = new Scanner(new FileReader(nomeArquivo));
 			while(arq.hasNext()) {
@@ -33,9 +34,10 @@ public class ListaControlador {
 				String telefone = arq.nextLine();
 				Pessoa pessoa = new Pessoa(nome);
 				pessoa.setTelefone(telefone);
-				arquivo.insert(new Nodo<Pessoa>(pessoa));
+				arquivo.incluir(new Nodo<Pessoa>(pessoa));
 				if (!nome.startsWith("#"))
-					contatos.insert(new Nodo<Pessoa>(pessoa));
+					contatos.incluir(new Nodo<Pessoa>(pessoa));
+				contatos.setTotalNodos(i++);//Guarda o tamanho da lista.
 			}
 			atual = contatos.getHead();
 		} catch (FileNotFoundException e) {
@@ -73,7 +75,7 @@ public class ListaControlador {
 		contato.setNome(visao.ler("Nome"));
 		contato.setTelefone(visao.ler("Telefone"));
 		Nodo<Pessoa> novo = new Nodo<Pessoa>(contato);
-		contatos.insert(novo);
+		contatos.incluir(novo);
 		arquivo.anexa(new Nodo<Pessoa>(contato));
 		atual = novo;
 	}
@@ -87,15 +89,42 @@ public class ListaControlador {
 
 	private Nodo<Pessoa> procuraContato(ListaEncadeada<Pessoa> lista, String chave)
 	{
+		int inicio = 0, fim = contatos.getTotalNodos();
+		visao.mensagem("Indice fim: "+ fim);
+		int meio = (inicio = fim)/2;
 		Nodo<Pessoa> iterador = lista.getHead();
+		String[] vetor = new String[fim+1] ;
+		boolean localizador = false;
+		String nome ="";
+	
 		while (iterador != null) {
 			Pessoa contato = iterador.getData();
-			String nome = contato.getNome().toLowerCase();
-			if (nome.startsWith(chave)) {
-				return iterador;
-			}
+			vetor[inicio] = contato.getNome().toLowerCase();
+			inicio++;
 			iterador = iterador.getNext();
 		}
+			inicio = 0;
+			while (inicio <= fim && localizador == false) {
+				Pessoa contato = iterador.getData();
+				nome = contato.getNome().toLowerCase();
+				if (nome.startsWith(vetor[meio])){
+					localizador = true;
+					return iterador;
+				} else {
+					if (!nome.startsWith(vetor[meio]) || inicio < fim) {
+						fim = meio - 1;
+					} else {
+						inicio = meio + 1;
+					}
+					meio = (inicio + fim) / 2;
+					iterador = iterador.getNext();
+				}
+			}
+			
+//			if (nome.startsWith(chave))
+//				return iterador;
+			
+			
 		return null;
 	}
 	

@@ -1,17 +1,25 @@
 package com.senac.apps.ListaTelefonica.model;
 
-public class ListaOrdenada<T extends Comparable<T>>
-				extends ListaEncadeada<T>
-{	
-	public Nodo<T> procuraNodo(Nodo<T> needle)
-	{
+public class ListaOrdenada<T extends Comparable<T>> extends ListaEncadeada<T>{	
+	
+	private int totalNodos = 0;
+	
+	public int getTotalNodos() {
+		return totalNodos;
+	}
+
+	public void setTotalNodos(int totalNodos) {
+		this.totalNodos = totalNodos;
+	}
+
+	public Nodo<T> procuraNodo(Nodo<T> nodo){
 		Nodo<T> atual = getHead();
 		Nodo<T> anterior = null;
-		T chaveNeedle = needle.getData();
+		T chaveNodo = nodo.getData();
 		
 		while (atual != null) {
 			T chaveAtual = atual.getData();
-			int compara = chaveNeedle.compareTo(chaveAtual);
+			int compara = chaveNodo.compareTo(chaveAtual);
 			if (compara == 0)
 				return atual; 
 			if (compara < 0)
@@ -23,21 +31,18 @@ public class ListaOrdenada<T extends Comparable<T>>
 	}
 	
 	@Override
-	public void anexa(Nodo<T> novo)
-	{
-		insert(novo);
+	public void anexa(Nodo<T> novo){
+		incluir(novo);
 	}
 	
 	@Override
-	public void insert(Nodo<T> novo, Nodo<T> anterior)
-	{
-		insert(novo);
+	public void incluir(Nodo<T> novo, Nodo<T> anterior){
+		incluir(novo);
 	}
 	
 	@Override
-	public void insert(Nodo<T> novo)
-	{
-		Nodo<T> anterior = procuraNodo(novo);
+	public void incluir(Nodo<T> novo){
+		Nodo<T> anterior = procuraNodo(novo); 
 		
 		if (anterior == null) {
 			novo.setNext(head);
@@ -56,5 +61,6 @@ public class ListaOrdenada<T extends Comparable<T>>
 			else
 				prox.setPrevious(novo);
 		}
+		setTotalNodos(totalNodos++);
 	}
 }

@@ -4,7 +4,7 @@ public class Pessoa implements Comparable<Pessoa> {
 
 	private String nome;
 	private String telefone;
-	
+
 	public Pessoa()
 	{
 		nome = null;
