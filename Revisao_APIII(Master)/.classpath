@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="Exercicio_1"/>
+	<classpathentry kind="src" path="Exercicio_2"/>
+	<classpathentry kind="src" path="Exercicio_3"/>
+	<classpathentry kind="src" path="Exercicio_4"/>
+	<classpathentry kind="src" path="Exercicio_5"/>
+	<classpathentry kind="src" path="Exercicio_6"/>
+	<classpathentry kind="src" path="Exercicio_7"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
