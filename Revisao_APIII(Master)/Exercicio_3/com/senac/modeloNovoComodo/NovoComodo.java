@@ -10,6 +10,9 @@ public class NovoComodo {
 	private Lampada lampada;
 	
 	public NovoComodo(){
+		this.tamanho = 0;
+		this.cor = "00000";
+		this.tamanho = 0;
 		this.lampada = new Lampada();
 	}
 	
