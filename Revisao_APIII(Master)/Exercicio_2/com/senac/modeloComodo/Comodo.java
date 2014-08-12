@@ -4,7 +4,7 @@ public class Comodo {
 	
 	private double tamanho;
 	private String tipo;
-	private String cor;
+	private int cor;
 	
 	public double getTamanho() {
 		return tamanho;
@@ -18,10 +18,10 @@ public class Comodo {
 	public void setTipo(String tipo) {
 		this.tipo = tipo;
 	}
-	public String getCor() {
+	public int getCor() {
 		return cor;
 	}
-	public void setCor(String cor) {
+	public void setCor(int cor) {
 		this.cor = cor;
-	}
+	}	
 }
