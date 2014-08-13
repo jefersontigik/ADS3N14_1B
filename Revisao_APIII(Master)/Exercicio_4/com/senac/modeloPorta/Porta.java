@@ -36,7 +36,7 @@ public class Porta {
 	}
 	
 	public void fechar(){
-		setPorta(true);
+		setPorta(false);
 	}
 	
 	public boolean isAberta(){
@@ -44,15 +44,15 @@ public class Porta {
 	}
 	
 	public void trancar(Chave chave){
-		if(this.fechadura == chave.getCodigo())
+	
+		if(!isTrancada() && this.fechadura == chave.getCodigo())
 			setTranca(true);
-//		throw new ChaveInvalida();
 	}
 
 	public void destrancar(Chave chave){
-		if(this.fechadura == chave.getCodigo())
+		
+		if(isTrancada() && this.fechadura == chave.getCodigo())
 			setTranca(false);
-//		throw new ChaveInvalida();
 	}
 	
 	public boolean isTrancada(){
