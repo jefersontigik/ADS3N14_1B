@@ -61,12 +61,12 @@ public class Nodo {
 	public static void main(String[] args) {
 		// criar lista
 		Nodo head = new Nodo(), novo;
-		head.setData(3);
+		head.setData(2);
 		
-		novo = new Nodo(1);
+		novo = new Nodo(3);
 		insertAfter(novo, head);
 		
-		novo = new Nodo(2);
+		novo = new Nodo(1);
 		insertBefore(head, novo);
 		
 		head = novo;
