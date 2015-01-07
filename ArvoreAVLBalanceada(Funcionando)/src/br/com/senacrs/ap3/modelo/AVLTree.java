@@ -55,13 +55,11 @@ public class AVLTree <T extends Comparable<T>>{
 		if (node == null)
 			return new Node<T>(data);
 		if (node.getData().compareTo(data) > 0) {
-			node = new Node<T>(node.getData(), insert(node.getLeft(), data),
-					node.getRight());
+			node = new Node<T>(node.getData(), insert(node.getLeft(), data), node.getRight());
 			// node.setLeft(insert(node.getLeft(), data));
 		} else if (node.getData().compareTo(data) < 0) {
 			// node.setRight(insert(node.getRight(), data));
-			node = new Node<T>(node.getData(), node.getLeft(), insert(
-					node.getRight(), data));
+			node = new Node<T>(node.getData(), node.getLeft(), insert(node.getRight(), data));
 		}
 		// After insert the new node, check and rebalance the current node if
 		// necessary.

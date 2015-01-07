@@ -1,0 +1,10 @@
+To make a graph:
+Vertex:
+	-get a list of all people
+	-for each person,
+		-figure out how many connections they have
+		-assign that value to the person
+	-sort list
+	
+Edges:
+	

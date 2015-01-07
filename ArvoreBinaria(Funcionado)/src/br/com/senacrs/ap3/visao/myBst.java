@@ -14,6 +14,7 @@ public class myBst {
 	    Bst bst = new Bst();
 	    
 	    System.out.println("Building tree with root value " + root.getData());
+	    bst.insert(root, 5);
 	    bst.insert(root, 2);
 	    bst.insert(root, 7);
 	    bst.insert(root, 3);

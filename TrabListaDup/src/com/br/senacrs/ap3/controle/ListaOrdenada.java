@@ -105,7 +105,6 @@ public class ListaOrdenada<T> extends Lista<T>{
 		T chaveAlvo = alvo.getDados();
 
 		while (atual != null) {
-			System.out.println("Entrou While");
 			T chaveAtual = atual.getDados();
 			boolean cmp = chaveAlvo.equals(chaveAtual);
 			if (cmp)

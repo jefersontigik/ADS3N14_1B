@@ -54,17 +54,21 @@ public class Bst {
 	}	
 	
 	public void preOrderWithoutRecursion(Node node){
+//		String nodo = "(" + node.getData();
 		while(true){
 			while(node != null){
 				System.out.print(node.getData()+" ");
+//				System.out.print(nodo+" ");
 				stk.push(node); 
 				node = node.getLeft();
+//				nodo = "("+(node = node.getLeft()).getData();
 			}
 			
 			if(stk.empty())
 				break;
 			
 			node = ((Node)stk.peek()).getRight();
+//			nodo = (((Node)stk.peek()).getRight()).getData()+")";
 			stk.pop();
 		}
 		System.out.println();
